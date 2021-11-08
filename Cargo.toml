@@ -10,4 +10,6 @@ license = "MIT OR Apache-2.0"
 [dependencies]
 color-eyre = "0.5.11"
 eyre = "0.6.5"
+serde = { version = "1.0.130", features = ["derive"] }
 structopt = "0.3.25"
+toml = "0.5.8"
