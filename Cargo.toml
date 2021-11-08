@@ -1,0 +1,13 @@
+[package]
+name = "test_random_crate"
+version = "0.1.0"
+authors = ["Amy Keibler <amelia.keibler@gmail.com>"]
+edition = "2018"
+description = "Fetch crates and run a command against them for testing purposes"
+
+license = "MIT OR Apache-2.0"
+
+[dependencies]
+color-eyre = "0.5.11"
+eyre = "0.6.5"
+structopt = "0.3.25"
