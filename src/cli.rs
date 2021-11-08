@@ -1,5 +1,5 @@
-use structopt::StructOpt;
 use std::str::FromStr;
+use structopt::StructOpt;
 
 #[derive(Debug, StructOpt)]
 #[structopt(
@@ -10,7 +10,7 @@ pub enum Cli {
     /// Run a test against a random crate from crates.io
     TestCrate {
         /// Selection criteria for the random crate [popular, previously-successful, previously-errored, previously-failed]
-        #[structopt(short = "s", long = "selection-criteria", default_value="popular")]
+        #[structopt(short = "s", long = "selection-criteria", default_value = "popular")]
         selection: CrateSelection,
     },
 
@@ -38,11 +38,14 @@ impl FromStr for CrateSelection {
             "previously-successful" => Ok(Self::PreviouslySuccessful),
             "previously-errored" => Ok(Self::PreviouslyErrored),
             "previously-failed" => Ok(Self::PreviouslyFailed),
-            other => Err(eyre::eyre!(r#"Could not match {} against one of:
+            other => Err(eyre::eyre!(
+                r#"Could not match {} against one of:
 popular
 previously-successful
 previously-errored
-previously-failed"#, other))
+previously-failed"#,
+                other
+            )),
         }
     }
 }
